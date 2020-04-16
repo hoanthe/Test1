@@ -184,7 +184,7 @@ class App extends Component{
                     onChange = {(event) => this.onInputName(event)}
                     className="form-control" 
                     id="exampleInputAmountName" 
-                    placeholder=""/>
+                    placeholder="Name"/>
             </div>
 
             <div className="input-group box">
