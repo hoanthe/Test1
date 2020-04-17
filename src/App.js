@@ -44,13 +44,15 @@ class App extends Component{
         if (workStatus === "1") {
           this.setState({
             arr: ar1,
-            workStatus: "1"
+            workStatus: "1",
+            incident: 0
           })
         }
         if (workStatus === "2") {
           this.setState({
             arr: ar2,
-            workStatus: "2"
+            workStatus: "2",
+            incident: 0
           })
         }
         if (workStatus === "3") {
@@ -65,13 +67,15 @@ class App extends Component{
         if (workStatus === "1") {
           this.setState({
             arr: ar1_2,
-            workStatus: "1"
+            workStatus: "1",
+            incident: 0            
           })
         }
         if (workStatus === "2") {
           this.setState({
             arr: ar2_2,
-            workStatus: "2"
+            workStatus: "2",
+            incident: 0
           })
   
         }
@@ -119,13 +123,15 @@ class App extends Component{
       if (name === "1") {
         this.setState({
           arr: ar1,
-          workStatus: "1"
+          workStatus: "1",
+          incident: 0
         })
       }
       if (name === "2") {
         this.setState({
           arr: ar2,
-          workStatus: "2"
+          workStatus: "2",
+          incident: 0
         })
       }
       if (name === "3") {
@@ -140,13 +146,15 @@ class App extends Component{
       if (name === "1") {
         this.setState({
           arr: ar1_2,
-          workStatus: "1"
+          workStatus: "1",
+          incident: 0
         })
       }
       if (name === "2") {
         this.setState({
           arr: ar2_2,
-          workStatus: "2"
+          workStatus: "2",
+          incident: 0
         })
 
       }
@@ -261,8 +269,7 @@ class App extends Component{
                 <h3 className="panel-title">Tiêu đề</h3>
               </div>
               <div className="panel-body">
-              <p>作業日報 {this.state.name} {year}/{(day === 1) ? month -1 : month}/{(day === 1) ? day : day + this.state.incident}
-              </p>
+              <p>作業日報 {this.state.name} {year}/{(day === 1) ? month -1 : month}/{(day === 1) ? day : day + this.state.incident}</p>
               </div>
           </div>
           
