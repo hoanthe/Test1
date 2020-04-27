@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
+import CO_ONINPUTNAME from './CO_InputName';
+import CO_INPUTNUMBER from './CO_INPUTNUMBER';
+import CO_ONCHANGEWORK from './CO_ONCHANGEWORK';
+import CO_ONSHOW from './CO_ONSHOW';
 
 class ChangeOption extends Component {
-
-    onInputName = (event) => {
-        this.props.onInputNameOption(event)
-    }
-
-    onInput = (event) => {
-        this.props.onInputOption(event)
-    }
-
-    onChangeWork = (event) => {
-        this.props.onChangeWorkOption(event)
-    }
-
-    onShow = (event) => {
-        this.props.onShowOption(event)
-    }
 
     render() {
         return (
@@ -27,73 +15,41 @@ class ChangeOption extends Component {
                         </div>
                         <div className="panel-body">
 
-                            <div className="input-group box">
-                                <div className="input-group-addon"><span>Tên</span></div>
-                                <input type="text"
-                                    onChange={(event) => this.onInputName(event)}
-                                    className="form-control"
-                                    id="exampleInputAmountName"
-                                    placeholder="Name" 
-                                />
-                            </div>
+                            <CO_ONINPUTNAME 
+                                CO_onInputName = {this.props.onInputNameOption}
+                            />
 
-                            <div className="input-group box">
-                                <div className="input-group-addon"><span>Số lượng lỗi</span></div>
-                                <input type="text"
-                                    onChange={(event) => this.onInput(event)}
-                                    className="form-control"
-                                    id="exampleInputAmount"
-                                    placeholder="Number" />
-                            </div>
+                            <CO_INPUTNUMBER 
+                                onInputNumber = {this.props.onInputOption}
+                            />
 
+                            <CO_ONCHANGEWORK 
+                                children = "Mail Trước"
+                                value = "first"
+                                name = "first_Sec"
+                                onChangeWorkRadio = {this.props.onChangeWorkOption}
+                            />
 
-                            <div className="radio">
-                                <label>
-                                    <input type="radio"
-                                        name="first_Sec"
-                                        id="input"
-                                        value="first"
-                                        onClick={(event) => this.onChangeWork(event)}
-                                    // Minh họa ví dụ cho dễ hiểu checked đang ở đâu
-                                    // checked={this.state.first_Sec === 'first'}
-                                    />
-                                    Mail Trước
-                                </label><br />
-                                <label>
-                                    <input type="radio"
-                                        name="first_Sec"
-                                        id="input"
-                                        value="second"
-                                        onClick={(event) => this.onChangeWork(event)}
-                                    // Minh họa ví dụ cho dễ hiểu checked đang ở đâu
-                                    // checked={this.state.first_Sec === 'second'}
-                                    />
-                                    Mail Sau
-                                </label>
-                            </div>
+                            <CO_ONCHANGEWORK 
+                                children = "Mail Sau"
+                                value = "second"
+                                name = "first_Sec"
+                                onChangeWorkRadio = {this.props.onChangeWorkOption}
+                            />
 
-                            {/* <select  id="input" className="form-control" onChange = { (event) => this.onChangeWork(event)} >
-              <option name="first_Sec" value="first" >-- Mail Trước --</option>
-              <option name="first_Sec" value="second" >-- Mail Sau --</option>
-            </select> */}
+                            <CO_ONSHOW 
+                                onShow_Work = {this.props.onShowOption}
+                            />
 
-                            <div className="box">
-                                <button onClick={(event) => this.onShow(event)}
-                                    type="button"
-                                    className="btn btn-primary box-btn"
-                                    name="1"
-                                >Ca 1</button>
-                                <button onClick={(event) => this.onShow(event)}
-                                    type="button"
-                                    className="btn btn-primary box-btn"
-                                    name="2"
-                                >Ca 2</button>
-                                <button onClick={(event) => this.onShow(event)}
-                                    type="button"
-                                    className="btn btn-primary box-btn"
-                                    name="3"
-                                >Ca 3</button>
-                            </div>
+                            
+                            <select name="" id="input" class="form-control" required="required">
+                                <option value="">Nghỉ 4h Trước</option>
+                                <option value="">Nghỉ 2h Trước</option>
+                                <option value="">Nghỉ 4h Sau</option>
+                                <option value="">Nghỉ 2h Sau</option>
+                            </select>
+                            
+                            
                         </div>
                     </div>
             </>
