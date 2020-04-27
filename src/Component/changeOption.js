@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 
-class changeOption extends Component {
+class ChangeOption extends Component {
+
+    onInputName = (event) => {
+        this.props.onInputNameOption(event)
+    }
+
+    onInput = (event) => {
+        this.props.onInputOption(event)
+    }
+
+    onChangeWork = (event) => {
+        this.props.onChangeWorkOption(event)
+    }
+
+    onShow = (event) => {
+        this.props.onShowOption(event)
+    }
+
     render() {
         return (
             <>
-                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <div className="panel panel-info">
                         <div className="panel-heading">
                             <h3 className="panel-title">Mail Server</h3>
@@ -17,7 +33,8 @@ class changeOption extends Component {
                                     onChange={(event) => this.onInputName(event)}
                                     className="form-control"
                                     id="exampleInputAmountName"
-                                    placeholder="Name" />
+                                    placeholder="Name" 
+                                />
                             </div>
 
                             <div className="input-group box">
@@ -60,9 +77,6 @@ class changeOption extends Component {
               <option name="first_Sec" value="second" >-- Mail Sau --</option>
             </select> */}
 
-
-
-
                             <div className="box">
                                 <button onClick={(event) => this.onShow(event)}
                                     type="button"
@@ -82,11 +96,9 @@ class changeOption extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-
             </>
         )
     }
 }
 
-export default changeOption;
+export default ChangeOption;

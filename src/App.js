@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import ChangeOption from './Component/ChangeOption';
+import ViewTittle from './Component/ViewTittle';
+import ViewContent from './Component/ViewContent';
 
 class App extends Component {
   constructor(props) {
@@ -9,21 +12,21 @@ class App extends Component {
       first_Sec: 'first',
       number: 0,
       workStatus: "",
-      arr: ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30"],
+      arr: ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30", "06:00 - 14:30"],
       incident: 0
     }
   }
 
-  onChangeWork(event) {
+  onChangeWork = (event) => {
 
-    let ar1 = ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30"]
-    let ar1_2 = ["06:00 - 11:30", "11:30 - 12:00", "12:00 - 14:30"]
+    let ar1 = ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30", "06:00 - 14:30"]
+    let ar1_2 = ["06:00 - 11:30", "11:30 - 12:00", "12:00 - 14:30", "06:00 - 14:30"]
 
-    let ar2 = ["14:00 - 18:00", "18:00 - 18:30", "18:30 - 22:30"]
-    let ar2_2 = ["14:00 - 18:30", "18:30 - 19:00", "19:00 - 22:30"]
+    let ar2 = ["14:00 - 18:00", "18:00 - 18:30", "18:30 - 22:30", "14:00 - 22:30"]
+    let ar2_2 = ["14:00 - 18:30", "18:30 - 19:00", "19:00 - 22:30", "14:00 - 22:30"]
 
-    let ar3 = ["22:00 - 02:00", "02:00 - 02:30", "02:30 - 06:30"]
-    let ar3_2 = ["22:00 - 02:30", "02:30 - 03:00", "03:00 - 06:30"]
+    let ar3 = ["22:00 - 02:00", "02:00 - 02:30", "02:30 - 06:30", "22:00 - 06:30"]
+    let ar3_2 = ["22:00 - 02:30", "02:30 - 03:00", "03:00 - 06:30", "22:00 - 06:30"]
 
     let target = event.target
     let name = target.name
@@ -89,7 +92,7 @@ class App extends Component {
     }
   }
 
-  onInput(event) {
+  onInput = (event) => {
     let target = event.target
     let value = target.value
     this.setState({
@@ -97,7 +100,7 @@ class App extends Component {
     })
   }
 
-  onInputName(event) {
+  onPushInputName = (event) => {
     let target = event.target
     let value = target.value
     this.setState({
@@ -105,15 +108,24 @@ class App extends Component {
     })
   }
 
-  onShow(event) {
-    let ar1 = ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30"]
-    let ar1_2 = ["06:00 - 11:30", "11:30 - 12:00", "12:00 - 14:30"]
+  onInputName = (event) => {
+    let target = event.target
+    let value = target.value
+    this.setState({
+      name: value
+    })
+  }
 
-    let ar2 = ["14:00 - 18:00", "18:00 - 18:30", "18:30 - 22:30"]
-    let ar2_2 = ["14:00 - 18:30", "18:30 - 19:00", "19:00 - 22:30"]
 
-    let ar3 = ["22:00 - 02:00", "02:00 - 02:30", "02:30 - 06:30"]
-    let ar3_2 = ["22:00 - 02:30", "02:30 - 03:00", "03:00 - 06:30"]
+  onShow = (event) => {
+    let ar1 = ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30", "06:00 - 14:30"]
+    let ar1_2 = ["06:00 - 11:30", "11:30 - 12:00", "12:00 - 14:30", "06:00 - 14:30"]
+
+    let ar2 = ["14:00 - 18:00", "18:00 - 18:30", "18:30 - 22:30", "14:00 - 22:30"]
+    let ar2_2 = ["14:00 - 18:30", "18:30 - 19:00", "19:00 - 22:30", "14:00 - 22:30"]
+
+    let ar3 = ["22:00 - 02:00", "02:00 - 02:30", "02:30 - 06:30", "22:00 - 06:30"]
+    let ar3_2 = ["22:00 - 02:30", "02:30 - 03:00", "03:00 - 06:30", "22:00 - 06:30"]
 
     let name = event.target.name
     let first_Sec = this.state.first_Sec
@@ -185,130 +197,32 @@ class App extends Component {
     return (
       <>
         {/* Mục tùy chọn */}
-        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div className="panel panel-info">
-            <div className="panel-heading">
-              <h3 className="panel-title">Mail Server</h3>
-            </div>
-            <div className="panel-body">
-
-              <div className="input-group box">
-                <div className="input-group-addon"><span>Tên</span></div>
-                <input type="text"
-                  onChange={(event) => this.onInputName(event)}
-                  className="form-control"
-                  id="exampleInputAmountName"
-                  placeholder="Name" />
-              </div>
-
-              <div className="input-group box">
-                <div className="input-group-addon"><span>Số lượng lỗi</span></div>
-                <input type="text"
-                  onChange={(event) => this.onInput(event)}
-                  className="form-control"
-                  id="exampleInputAmount"
-                  placeholder="Number" />
-              </div>
-
-
-              <div className="radio">
-                <label>
-                  <input type="radio"
-                    name="first_Sec"
-                    id="input"
-                    value="first"
-                    onClick={(event) => this.onChangeWork(event)}
-                  // Minh họa ví dụ cho dễ hiểu checked đang ở đâu
-                  // checked={this.state.first_Sec === 'first'}
-                  />
-                Mail Trước
-              </label><br />
-                <label>
-                  <input type="radio"
-                    name="first_Sec"
-                    id="input"
-                    value="second"
-                    onClick={(event) => this.onChangeWork(event)}
-                  // Minh họa ví dụ cho dễ hiểu checked đang ở đâu
-                  // checked={this.state.first_Sec === 'second'}
-                  />
-                Mail Sau
-              </label>
-              </div>
-
-              {/* <select  id="input" className="form-control" onChange = { (event) => this.onChangeWork(event)} >
-              <option name="first_Sec" value="first" >-- Mail Trước --</option>
-              <option name="first_Sec" value="second" >-- Mail Sau --</option>
-            </select> */}
-
-
-
-
-              <div className="box">
-                <button onClick={(event) => this.onShow(event)}
-                  type="button"
-                  className="btn btn-primary box-btn"
-                  name="1"
-                >Ca 1</button>
-                <button onClick={(event) => this.onShow(event)}
-                  type="button"
-                  className="btn btn-primary box-btn"
-                  name="2"
-                >Ca 2</button>
-                <button onClick={(event) => this.onShow(event)}
-                  type="button"
-                  className="btn btn-primary box-btn"
-                  name="3"
-                >Ca 3</button>
-              </div>
-            </div>
-          </div>
+        
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <ChangeOption 
+            onInputNameOption = {this.onInputName}
+            onInputOption = {this.onInput}
+            onChangeWorkOption = {this.onChangeWork}
+            onShowOption = {this.onShow}
+          />
         </div>
 
-        {/* Nội dung hiển thị */}
-
-        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-
-
-          <div className="panel panel-info">
-            <div className="panel-heading">
-              <h3 className="panel-title">Tiêu đề</h3>
-            </div>
-            <div className="panel-body">
-              <p>作業日報 {this.state.name} {year}/{month}/{(day === 1) ? day : day + this.state.incident}</p>
-            </div>
-          </div>
-
-
-          <div className="panel panel-info">
-            <div className="panel-heading">
-              <h3 className="panel-title">Nội Dung Mail</h3>
-            </div>
-            <div className="panel-body">
-              <p></p>
-              <p>関連各位</p>
-
-              <p>・勤務日時　{month}月{(day === 1) ? day : day + this.state.incident}日 14:00 - 22:30</p>
-
-              <p>　作業内容</p>
-
-              <p> {this.state.arr[0]}　メールを監視・対応しながら、資料確認、。</p>
-
-              <p> {this.state.arr[1]}　休憩、食事。 　</p>
-
-              <p> {this.state.arr[2]}　メールを監視・対応しながら、資料確認、。</p>
-
-              <p>アラート対応 :  {this.state.number} Errors。</p>
-              <p>特にございません。</p>
-
-              <p>以上です</p>
-              <p>よろしくお願いします。</p>
-              <p>--------------------------------------------------------------- </p>
-            </div>
-          </div>
-
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <ViewTittle 
+            yearTittle = {year}
+            monthTittle = {month}
+            dayTittle = {day}
+            nameTittle = {this.state.name}
+            incidentTittle = {this.state.incident}
+          />
+          <ViewContent 
+            monthContent = {month}
+            dayContent = {day}
+            incidentContent = {this.state.incident}
+            numberContent = {this.state.number}
+            arrContent = {this.state.arr}
+          />
         </div>
-
       </>
 
     )

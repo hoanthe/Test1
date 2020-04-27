@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
-class viewContent extends Component {
+class ViewContent extends Component {
     render() {
+
+        let month = this.props.monthContent;
+        let day = this.props.dayContent;
+        let incident = this.props.incidentContent;
+        let number = this.props.numberContent;
+        let arr = this.props.arrContent;
+
         return (
             <>
                 <div className="panel panel-info">
@@ -12,17 +19,17 @@ class viewContent extends Component {
                         <p></p>
                         <p>関連各位</p>
 
-                        <p>・勤務日時　{month}月{(day === 1) ? day : day + this.state.incident}日 14:00 - 22:30</p>
+                        <p>・勤務日時　{month}月{(day === 1) ? day : day + incident}日 {arr[3]}</p>
 
                         <p>　作業内容</p>
 
-                        <p> {this.state.arr[0]}　メールを監視・対応しながら、資料確認、。</p>
+                        <p> {arr[0]}　メールを監視・対応しながら、資料確認、。</p>
 
-                        <p> {this.state.arr[1]}　休憩、食事。 　</p>
+                        <p> {arr[1]}　休憩、食事。 　</p>
 
-                        <p> {this.state.arr[2]}　メールを監視・対応しながら、資料確認、。</p>
+                        <p> {arr[2]}　メールを監視・対応しながら、資料確認、。</p>
 
-                        <p>アラート対応 :  {this.state.number} Errors。</p>
+                        <p>アラート対応 :  {number} Errors。</p>
                         <p>特にございません。</p>
 
                         <p>以上です</p>
@@ -36,4 +43,4 @@ class viewContent extends Component {
     }
 }
 
-export default viewContent;
+export default ViewContent;
