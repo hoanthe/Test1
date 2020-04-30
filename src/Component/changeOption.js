@@ -6,6 +6,10 @@ import CO_ONSHOW from './CO_ONSHOW';
 
 class ChangeOption extends Component {
 
+    onChangeSelect(event){
+        this.props.halfPartOnChange(event)
+    }
+
     render() {
         return (
             <>
@@ -42,11 +46,18 @@ class ChangeOption extends Component {
                             />
 
                             
-                            <select name="" id="input" class="form-control" required="required">
-                                <option value="">Nghỉ 4h Trước</option>
-                                <option value="">Nghỉ 2h Trước</option>
-                                <option value="">Nghỉ 4h Sau</option>
-                                <option value="">Nghỉ 2h Sau</option>
+                            <select 
+                                name="" 
+                                id="input" 
+                                class="form-control" 
+                                required="required"
+                                value = {this.props.halfpart}
+                                onChange = {(event) => this.onChangeSelect(event)}
+                            >
+                                <option value="before4">Nghỉ 4h Trước</option>
+                                <option value="before2">Nghỉ 2h Trước</option>
+                                <option value="after4">Nghỉ 4h Sau</option>
+                                <option value="after2">Nghỉ 2h Sau</option>
                             </select>
                             
                             

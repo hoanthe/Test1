@@ -13,7 +13,8 @@ class App extends Component {
       number: 0,
       workStatus: "",
       arr: ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30", "06:00 - 14:30"],
-      incident: 0
+      incident: 0,
+      half: ""
     }
   }
 
@@ -116,6 +117,12 @@ class App extends Component {
     })
   }
 
+  onChangeHalf = (event) => {
+    this.setState({
+      half : event.target.value
+    })
+  }
+
 
   onShow = (event) => {
     let ar1 = ["06:00 - 11:00", "11:00 - 11:30", "11:30 - 14:30", "06:00 - 14:30"]
@@ -204,6 +211,7 @@ class App extends Component {
             onInputOption = {this.onInput}
             onChangeWorkOption = {this.onChangeWork}
             onShowOption = {this.onShow}
+            halfPartOnChange = {this.onChangeHalf}
           />
         </div>
 
